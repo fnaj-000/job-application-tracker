@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Job Match & Ranking Algorithm</h2>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <p class="text-muted">Jobs are automatically scored and ranked based on status, flexibility, and preferences.</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Rank Score</th>
+                    <th>Job Title</th>
+                    <th>Company</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for job in jobs %}
+                <tr>
+                    <td>
+                        <span class="badge bg-success fs-6">{{ job.match_score }} pts</span>
+                    </td>
+                    <td>{{ job.job_title }}</td>
+                    <td>{{ job.company_name }}</td>
+                    <td>{{ job.location }}</td>
+                    <td>{{ job.status }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No jobs available for matching.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

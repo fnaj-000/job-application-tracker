@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm p-4">
+            <h2 class="mb-4">Add Networking Contact</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Company</label>
+                    <select class="form-control" name="company_id">
+                        <option value="">Select a Company (Optional)</option>
+                        {% for company in companies %}
+                        <option value="{{ company.company_id }}">{{ company.company_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Contact Name</label>
+                    <input type="text" class="form-control" name="contact_name" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Job Title / Role</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="text" class="form-control" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-control" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Save Contact</button>
+                <a href="{{ url_for('contacts') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm p-4">
+            <h2 class="mb-4">Add Job Application</h2>
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Job Listing</label>
+                    <select class="form-control" name="job_id" required>
+                        <option value="">Select a Job</option>
+                        {% for job in jobs %}
+                        <option value="{{ job.job_id }}">{{ job.job_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Application Date</label>
+                    <input type="date" class="form-control" name="application_date" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select class="form-control" name="status">
+                        <option value="Applied">Applied</option>
+                        <option value="Interviewing">Interviewing</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Notes</label>
+                    <textarea class="form-control" name="notes" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-success">Save Application</button>
+                <a href="{{ url_for('applications') }}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
