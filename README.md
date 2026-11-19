@@ -21,5 +21,5 @@ A full-stack web application designed to organize, manage, and prioritize job ap
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/fnaj-000/job-application-tracker.git](https://github.com/fnaj-000/job-application-tracker.git)
+   git clone (https://github.com/fnaj-000/job-application-tracker.git)
    cd job-application-tracker
